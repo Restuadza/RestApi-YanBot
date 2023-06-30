@@ -166,7 +166,7 @@ router.get('/dowloader/yt', async (req, res, next) => {
 	var url = req.query.url
 	if (!url ) return res.json({ status : false, creator : `${creator}`, message : "[!] masukan parameter url"}) 
 
-	let { yta, ytv } = require('../lib/listdl')
+	let { yta, ytv } = require('../lib/y2mate')
 	let mp3 = await yta(url, '320kbps')
 	let mp4 = await ytv(url, '360p')
 	if (!mp4.title ) return res.json(loghandler.noturl)
